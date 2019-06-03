@@ -1,0 +1,28 @@
+[user]
+	name = Tiago Lopes da Costa
+	email = tiago.costa@mv.com.br
+	#email = tiagolo@gmail.com
+[alias]
+	l  = log --all --graph --decorate
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	unstage = reset HEAD --
+	sf = submodule foreach
+	all = "!f() { git sf --recursive \"$@\" && eval $@; }; f"
+	files = "!f() { git diff --name-status \"$1^\" \"$1\"; }; f"
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[merge]
+	tool = meld
+[mergetool "meld"]
+	cmd = "/usr/bin/meld $LOCAL $MERGED $REMOTE"
+[pager]
+	branch = false
+[core]
+#	pager = 
+	autocrlf = input
