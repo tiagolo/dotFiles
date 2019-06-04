@@ -138,4 +138,4 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:$HOME/bin
 
 #neofetch
-alias config='/usr/bin/git --git-dir=/home/tiago/.cfg/ --work-tree=/home/tiago'
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
