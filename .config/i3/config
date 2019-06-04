@@ -178,7 +178,7 @@ bindsym $mod+F4 exec intellij-idea-ultimate-edition
 bindsym $mod+r exec terminal -e 'ranger'
 bindsym $mod+Escape exec terminal -e 'gotop'
 bindsym $mod+Shift+F3 exec gksu pcmanfm
-bindsym $mod+F5 exec teams-for-linux
+bindsym $mod+F5 "exec rambox; exec teams-for-linux"
 bindsym $mod+F6 exec spotify
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
@@ -340,7 +340,9 @@ assign [class="Pcmanfm"] $ws3
 assign [class="jetbrains-idea"] $ws4
 assign [class="Spotify"] $ws6
 assign [class="Teams for Linux"] $ws5
+assign [class="Rambox"] $ws5
 assign [class="Steam"] $ws8
+
 # Open specific applications in floating mode
 for_window [title="Neofetch"] floating enable
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -375,7 +377,6 @@ for_window [class="Spotify"] move to workspace $ws6
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 for_window [workspace=$ws10] floating enable
-for_window [workspace=$ws1] smart_gaps off
 
 
 
