@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/etc'
+let g:netrw_dirhist_2='/etc/profile.d'
+let g:netrw_dirhist_3='/home/tiago/.config/dmenu-recent'
+let g:netrw_dirhist_4='/home/tiago/.config/polybar'
+let g:netrw_dirhist_5='/home/tiago/.config'
+let g:netrw_dirhist_6='/home/tiago/git/MV/_apoio/editor-ui'
