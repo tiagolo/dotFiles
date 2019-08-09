@@ -12,6 +12,7 @@
 	sf = submodule foreach
 	all = "!f() { git sf --recursive \"$@\" && eval $@; }; f"
 	files = "!f() { git diff --name-status \"$1^\" \"$1\"; }; f"
+	all2 = "!f() { git sf --recursive \"$@\" && eval $@; }; f"
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true

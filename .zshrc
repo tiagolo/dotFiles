@@ -16,8 +16,8 @@ POWERLEVEL9K_VCS_SHOW_SUBMODULE_DIRTY=false
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir_writable dir rbenv vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time root_indicator background_jobs history )	
 
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-# POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_last
 # POWERLEVEL9K_OS_ICON_BACKGROUND="blue"
 # POWERLEVEL9K_OS_ICON_FOREGROUND="white"
 # POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
@@ -105,6 +105,7 @@ ENABLE_CORRECTION="true"
 plugins=(
     git
     tmux
+    vundle
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -138,4 +139,5 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:$HOME/bin
 
 #neofetch
+alias r='ranger'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'

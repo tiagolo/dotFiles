@@ -153,11 +153,11 @@ label = %temperature-c%
 label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
 
-ramp-0 = 
-ramp-1 = 
+ramp-0 = 
+ramp-1 = 
 ramp-2 = 
-ramp-3 = 
-ramp-4 = 
+ramp-3 = 
+ramp-4 = 
 ramp-foreground = ${self.format-underline}
 ramp-font = 3
 
@@ -218,14 +218,14 @@ adapter = ADP1
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-charging-underline = #40FF2A
 
-format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${self.ramp-capacity-foreground}
 
 format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
+format-full-foreground = #2A76FF 
+format-full-underline = #2A76FF
 format-full-prefix-font = 3
 
 animation-charging-0 = 
@@ -239,18 +239,22 @@ animation-charging-foreground = ${self.format-charging-underline}
 animation-charging-framerate = 750
 animation-charging-font = 3
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-3 = 
-animation-discharging-4 = 
-animation-discharging-5 = 
-animation-discharging-6 = 
-animation-discharging-7 = 
-animation-discharging-8 = 
-animation-discharging-foreground = ${self.format-charging-underline}
-animation-discharging-framerate = 750
-animation-discharging-font = 3
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-5 = 
+ramp-capacity-6 = 
+ramp-capacity-7 = 
+ramp-capacity-8 = 
+ramp-capacity-foreground = #ffb52a
+ramp-capacity-0-foreground = #FF442A
+ramp-capacity-1-foreground = #FF442A
+ramp-capacity-2-foreground = #FF442A
+ramp-capacity-8-foreground = #FF442A
+ramp-capacity-font = 3
+
 
 
 [module/network]
