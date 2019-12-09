@@ -141,3 +141,6 @@ export PATH=$PATH:$HOME/bin
 #neofetch
 alias r='ranger'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+# Set up Node Version Manager
+source /usr/share/nvm/init-nvm.sh
