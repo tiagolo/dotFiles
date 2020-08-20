@@ -42,10 +42,17 @@ bindsym $mod+Shift+e exec terminal -name "i3-editor" -e i3-sensible-editor ~/.co
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id dmenu_recency
+#bindsym $mod+d exec --no-startup-id dmenu_recency
+bindsym $mod+d exec --no-startup-id "rofi -show drun -font \\"DejaVu 12\\" -run-shell-command '{terminal} -e \\" {cmd}; read -n 1 -s\\"'"
 
 # launch categorized menu
-bindsym $mod+z exec --no-startup-id morc_menu
+#bindsym $mod+z exec --no-startup-id morc_menu
+
+# start rofi (dmenu mode)
+bindsym $mod+z exec --no-startup-id ~/.config/rofi/launchers-git/launcher.sh
+
+# start rofi (window mode)
+bindsym $mod+Tab exec --no-startup-id ~/.config/rofi/scripts/menu_apps.sh
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -178,13 +185,15 @@ bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
 bindsym $mod+F1 exec sudo openfortigui
 bindsym $mod+F2 exec env MOZ_USE_XINPUT2=1 firefox
 bindsym $mod+F3 exec intellij-idea-ultimate-edition
-bindsym $mod+F4 exec pcmanfm
+bindsym $mod+F4 exec dolphin
 bindsym $mod+F9 exec pamac-manager --updates
 bindsym $mod+r exec terminal -e 'ranger'
+#bindsym $mod+F10 exec env MOZ_USE_XINPUT2=1 firefox --new-window http://192.168.0.245/zabbix/zabbix.php?action=dashboard.view
+bindsym $mod+F10 exec google-chrome-stable --new-window --app=http://192.168.0.245/zabbix/zabbix.php?action=dashboard.view&dashboardid=6
 bindsym $mod+Escape exec terminal -e 'gotop'
 bindsym $mod+Shift+Escape exec terminal -e 'htop'
 bindsym $mod+Shift+F3 exec gksu pcmanfm
-bindsym $mod+F5 "exec rambox; exec teams-for-linux"
+bindsym $mod+F5 "exec teams"
 bindsym $mod+F6 exec spotify
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
@@ -265,7 +274,7 @@ bindsym $mod+minus scratchpad show
 #navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
-bindsym $mod+Tab workspace next
+#bindsym $mod+Tab workspace next
 bindsym Mod1+Tab workspace next
 
 # Workspace names
@@ -345,17 +354,19 @@ bindsym $mod+Ctrl+less move workspace to output left
 
 # Open applications on specific workspaces
 # assign [class="Thunderbird"] $ws1
-assign [class="Firefox"] $ws2
+assign [class="Navigator"] $ws2
 assign [class="firefox"] $ws2
 assign [class="Pcmanfm"] $ws4
+assign [class="dolphin"] $ws4
 assign [class="jetbrains-idea"] $ws3
 assign [class="Spotify"] $ws6
-assign [class="Teams for Linux"] $ws5
-assign [class="teams-for-linux"] $ws5
+assign [class="Microsoft Teams - Preview"] $ws5
+assign [class="teams"] $ws5
 assign [class="Rambox"] $ws5
 assign [class="GitKraken"] $ws7
 assign [class="Steam"] $ws8
 assign [class="URxvt" instance="i3-editor"] $ws1
+assign [class="Google-chrome" instance="192.168.0.245__zabbix_zabbix.php"] $ws7
 
 # Open specific applications in floating mode
 for_window [title="Neofetch"] floating enable
@@ -388,13 +399,14 @@ for_window [class="Xfburn"] floating enable
 for_window [class="Ulauncher"] floating enable
 for_window [class="openfortiGUI"] floating enable border normal
 for_window [class="Spotify"] move to workspace $ws6
-for_window [class="URxvt" instance="floating"] floating enable 
+for_window [class="URxvt" instance="floating"] floating enable
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 for_window [workspace=$ws10] floating enable
+for_window [class="URxvt" workspace=$ws10] floating enable
 for_window [class="java-lang-Thread"] floating enable
-
-
+for_window [class="Microsoft Teams - Preview" window_type="notification" ] floating enable
+for_window [class="jetbrains-idea" title="win0"] floating enable
 
 
 # =====================================================================
@@ -405,6 +417,7 @@ for_window [class="java-lang-Thread"] floating enable
 
 # Set shut down, restart and locking features
 # =====================================================================
+bindsym $mod+Delete exec ~/.config/rofi/power/powermenu.sh
 bindsym $mod+0 mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {

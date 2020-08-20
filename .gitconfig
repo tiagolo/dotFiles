@@ -27,3 +27,5 @@
 [core]
 #	pager = 
 	autocrlf = input
+[pull]
+	rebase = true
