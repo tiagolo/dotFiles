@@ -137,7 +137,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-if [[ $(ps --no-header -p $PPID -o comm | grep -Ev '^(yakuake|konsole)$' ) ]]; then
+if [[ $(ps --no-header -p $PPID -o comm | grep -Ev '^(yakuake|konsole|init)$' ) ]]; then
         for wid in $(xdotool search --pid $PPID); do
             xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id $wid; done
 fi
@@ -159,6 +159,8 @@ source aws_zsh_completer.sh
 
 #Início do serviço do docker, workaround exclusivo para o WSL2 - https://github.com/microsoft/WSL2-Linux-Kernel/issues/30
 service docker status > /dev/null || sudo service docker start
+# Set up Node Version Manager
+# source /usr/share/nvm/init-nvm.sh
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /home/tiago/bin/terraform terraform
