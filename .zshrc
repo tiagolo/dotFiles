@@ -138,6 +138,20 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH=$PATH:$HOME/bin
 
+test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
 #neofetch
 alias r='ranger'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+alias python=python3
+alias pip=pip3
+
+source aws_zsh_completer.sh
+
+#Início do serviço do docker, workaround exclusivo para o WSL2 - https://github.com/microsoft/WSL2-Linux-Kernel/issues/30
+service docker status > /dev/null || sudo service docker start
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /home/tiago/bin/terraform terraform
