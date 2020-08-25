@@ -155,13 +155,14 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias python=python3
 alias pip=pip3
 
-source aws_zsh_completer.sh
+# source aws_zsh_completer.sh
+autoload bashcompinit && bashcompinit
+complete -C '/usr/local/bin/aws_completer' aws
 
 #Início do serviço do docker, workaround exclusivo para o WSL2 - https://github.com/microsoft/WSL2-Linux-Kernel/issues/30
-service docker status > /dev/null || sudo service docker start
+# service docker status > /dev/null || sudo service docker start
 # Set up Node Version Manager
 # source /usr/share/nvm/init-nvm.sh
 
-autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /home/tiago/bin/terraform terraform
 complete -o nospace -C /usr/bin/vault vault
