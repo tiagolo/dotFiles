@@ -1,6 +1,6 @@
 [user]
 	name = Tiago Lopes da Costa
-	email = tiago.costa@mv.com.br
+	email = tlc@cesar.org.br
 	#email = tiagolo@gmail.com
 [alias]
 	l  = log --all --graph --decorate
